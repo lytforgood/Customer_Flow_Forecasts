@@ -27,4 +27,4 @@ IJCAI.ipynb python使用记录
 
 java
 ====
-Evalute.java 评测函数
+Evaluate.java 评测函数
