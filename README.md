@@ -6,11 +6,25 @@ IJCAI 2017 Competition
 
 scala数据预处理
 ====
-1. DataSQL 执行sql查询
-2. DateFormat 时间处理函数工具类
-3. DateTransform 转换数据时间
-R统计分析
-====
-python训练模型
-====
+1. DateFormat 时间处理函数工具类
+2. DateTransform 转换数据时间
+3. DataSQL 执行sql查询
+4. querySql 统计量生成
 
+R统计分析 时序模型
+====
+1. time.R 时间序列模型
+2. WNN.R  Weighted Nearest Neighbors模型
+参考:Electricity Market Price Forecasting Based on Weighted Nearest Neighbors Techniques
+
+python特征提取 训练模型
+====
+IJCAI.ipynb python使用记录
+1. union.py 原始数据整合
+2. preprocessing.py 数据预处理 + 特征变换
+3. Evaluate_detail.py 评价函数
+   Evaluate.py 测试集构建填充缺失值+评价函数
+
+java
+====
+Evalute.java 评测函数

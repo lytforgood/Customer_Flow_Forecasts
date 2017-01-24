@@ -123,5 +123,13 @@ object DateTransform {
     w
   }
 
+  //这天属于几年第几周
+  def getWeeksofYear(date_string:String)={
+    val df:SimpleDateFormat=new SimpleDateFormat("yyyyMMdd")
+    val tmp:Date=df.parse(date_string)
+    val cal:Calendar = Calendar.getInstance()
+    cal.setTime(tmp)
+    var i = cal.get(Calendar.WEEK_OF_YEAR)
+  }
 
 }
