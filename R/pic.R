@@ -8,7 +8,7 @@ library('htmlwidgets') ##保持echarts文件为html
 
 da<- fread("/Users/yuyin/Downloads/笔记学习/天池比赛/IJCAI-17口碑商家客流量预测/data/dataset/feature/train_all.txt",header = FALSE)
 #测试集选择的 20161018-20161031
-re=sqldf("select V1,V2,V6 from da where V2>=20161018 and V2<=20161031 order by V1,V2")
+re=sqldf("select V1,V2,V6 from da where V2>=20160901 and V2<=20161031 order by V1,V2")
 shop_id=unique(da$V1)
 
 for (i in 1:length(shop_id)){

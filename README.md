@@ -20,11 +20,14 @@ R统计分析 时序模型
 python特征提取 训练模型
 ====
 IJCAI.ipynb python使用记录
+
 1. union.py 原始数据整合
 2. preprocessing.py 数据预处理 + 特征变换
 3. Evaluate_detail.py 评价函数
    Evaluate.py 测试集构建填充缺失值+评价函数
-
+4. test_build.py 构建测试集时间等特征
+5. feature.py 特征提取+模型训练
+6. baseline.py 星期特征baseline
 java
 ====
 Evaluate.java 评测函数

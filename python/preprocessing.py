@@ -18,6 +18,7 @@ import datetime
 train_all = pd.read_csv("../../data/dataset/feature/train_all.txt",header=None)
 train_all.columns=['shop_id','time','year','mouth','day','pay_count','pay_user_count','view_count','view_user_count','city_name','location_id','per_pay','score','comment_cnt','shop_level','cate_1_name','cate_2_name','cate_3_name']
 
+
 #标签类别化
 tmp=train_all["city_name"]
 le = preprocessing.LabelEncoder()
@@ -92,12 +93,21 @@ train_all['cate_3_name']=tmp
 # label_binarize(['yes', 'no', 'no', 'yes'], classes=['no', 'yes'])
 
 
-##判断为该年第几周 import datetime datetime.date(2017, 1, 16).isocalendar() 返回结果是三元组（年号，第几周，第几天）
+##判断为该年第几周 import datetime datetime.date(2017, 1, 16).isocalendar() 返回结果是三元组（年号，第几周，第几天） weekday 返回星期几 1-7
 tmp=[]
+weekday=[]
 for i in xrange(train_all.shape[0]) :
     week_year=list(datetime.date(train_all['year'][i], train_all['mouth'][i], train_all['day'][i]).isocalendar())
+    date_time = datetime.datetime.strptime(train_all['time'][i].astype('string'),'%Y%m%d')
+    weekday.append(date_time.weekday()+1)
     tmp.append(str(week_year[0])+str(week_year[1]))
 week_of_year=pd.DataFrame({'week_of_year':tmp})
+week_day=pd.DataFrame({'week_day':weekday})
 train_all=pd.concat([train_all,week_of_year],axis=1)
+train_all=pd.concat([train_all,week_day],axis=1)
+
+# train_all.to_csv("./train_all_weekday.csv",header=False,index=False)
+
+
 
 

@@ -109,10 +109,10 @@ rm(list=ls());gc()
 library(sqldf)
 require(data.table)
 library(recharts)
-da<- fread("/Users/yuyin/Downloads/笔记学习/天池比赛/IJCAI-17口碑商家客流量预测/data/dataset/feature/train_all.txt",header = FALSE)
+da<- fread("/Users/yuyin/Downloads/笔记学习/天池比赛/IJCAI-17口碑商家客流量预测/data/dataset/feature/train_all_weekday.txt",header = FALSE)
 
 #取14得倍数的长度序列  预测20161018-20161031
-re=sqldf("select V1,V2,V6 from da where V2>=20160712 and V2<=20161017 order by V1,V2")
+re=sqldf("select V1,V2,V6 from da where V2>=20150730 order by V1,V2")
 shop_id=unique(re$V1)
 out={}
 for (i in 1:length(shop_id)){
@@ -127,5 +127,5 @@ a=c(as.character(shop_id[i]),fore_WNN)
 out=rbind(out,a)
 }
 out[is.nan(out)] <- 0
-write.table (out, file ="/Users/yuyin/Downloads/笔记学习/天池比赛/IJCAI-17口碑商家客流量预测/data/dataset/feature/wnn_18_31.txt",sep =",",row.names = F,col.names=F,quote =F)
+write.table (out, file ="/Users/yuyin/Downloads/笔记学习/天池比赛/IJCAI-17口碑商家客流量预测/data/dataset/out/wnn_01.txt",sep =",",row.names = F,col.names=F,quote =F)
 

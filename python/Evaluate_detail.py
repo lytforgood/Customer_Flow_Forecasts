@@ -2,7 +2,7 @@
 import pandas as pd
 #评测开始
 real_all = pd.read_csv("../../data/dataset/feature/real_18_31.txt",header=None)
-pre_all = pd.read_csv("../../data/dataset/feature/wnn_18_31.txt",header=None)
+pre_all = pd.read_csv("../../data/dataset/out/gbdt_05.csv",header=None)
 
 real_all.columns=['shop_id','day_1','day_2','day_3','day_4','day_5','day_6','day_7','day_8','day_9','day_10','day_11','day_12','day_13','day_14']
 pre_all.columns=['shop_id','day_1','day_2','day_3','day_4','day_5','day_6','day_7','day_8','day_9','day_10','day_11','day_12','day_13','day_14']
